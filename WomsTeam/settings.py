@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     
     'allauth',
     'allauth.account',
+
+    'faq',
+    'blog',
+    'ticket',
 ]
 
 MIDDLEWARE = [

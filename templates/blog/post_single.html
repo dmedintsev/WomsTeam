@@ -1,0 +1,7 @@
+{{post.title}}<hr>
+{% if post.image %}<img src="{{post.image.url}}">{% endif %}
+{{post.text}}<br>
+
+Категория - {{post.category}}<br>
+Теги - {% for t in post.tag.all %}{{t.tag}} {% endfor %}
+
