@@ -14,6 +14,7 @@ class Category(models.Model):
     def __str__(self):
         return self.cat
 
+
 class Tag(models.Model):
     """ Класс модели тегов
     """
@@ -30,9 +31,10 @@ class Tag(models.Model):
 class Post(models.Model):
     """ Класс модели поста
     """
-    author = models.ForeignKey('auth.User',
-                               verbose_name="Автор",
-                               on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        'auth.User',
+        verbose_name="Автор",
+        on_delete=models.CASCADE)
     title = models.CharField("Тема", max_length=100)
     mini_text = models.TextField("Краткое содержание", max_length=200)
     text = models.TextField("Содержание")
@@ -45,7 +47,7 @@ class Post(models.Model):
                                  blank=True,
                                  null=True,
                                  on_delete=models.SET_NULL)
-    tag  = models.ManyToManyField(Tag, verbose_name="Тег", blank=True)
+    tag = models.ManyToManyField(Tag, verbose_name="Тег", blank=True)
 
     class Meta:
         verbose_name = "Пост"

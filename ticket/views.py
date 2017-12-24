@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Ticket
 from .forms import FormTicket
 
+
 def add_ticket(request):
     if request.method == "POST":
         form = FormTicket(request.POST)
