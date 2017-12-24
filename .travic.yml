@@ -1,20 +1,11 @@
 language: python
 python:
-   # - "3.5"
-    # - "3.5-dev"  # 3.5 development branch
     - "3.6"
-   # - "3.7-dev"  # 3.7 development branch
-   # - "nightly"
 services:
     - "postgresql"
-#addons:
-##   postgresql: "9.4"
-#    postgresql: "9.6"
-##    postgresql: "10"
 before_script:
     - "psql -c 'create database travis_ci_test;' -U postgres"
 install:
-    - "pip install pep8"
     - "pip install -r req.txt"
 script:
     - "python manage.py test"
