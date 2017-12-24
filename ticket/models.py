@@ -5,6 +5,8 @@ User = settings.AUTH_USER_MODEL
 
 
 class Category(models.Model):
+    """Модель категорий для тикетов
+    """
     kat = models.CharField("Категория", max_length=100)
 
     class Meta:
@@ -16,6 +18,8 @@ class Category(models.Model):
 
 
 class Ticket(models.Model):
+    """Модель системы тикетов
+    """
     user = models.ForeignKey(
         User,
         verbose_name="Пользователь",

@@ -5,7 +5,7 @@ User = settings.AUTH_USER_MODEL
 
 
 class Faq(models.Model):
-    """ Класс модели FAQ
+    """Класс модели FAQ
     """
     user = models.ForeignKey(
         User,
