@@ -14,3 +14,6 @@ Postgres 10
 Создать файл local_settings.py и прописать конект к базе
 
 pip install -r req.txt
+
+Проверка стиля
+autopep8 ./your_apps --recursive -v --in-place -a
