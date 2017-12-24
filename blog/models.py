@@ -32,17 +32,21 @@ class Post(models.Model):
     """ Класс модели поста
     """
     author = models.ForeignKey(
-        'auth.User', verbose_name="Автор", on_delete=models.CASCADE)
+        'auth.User',
+        verbose_name="Автор",
+        on_delete=models.CASCADE)
     title = models.CharField("Тема", max_length=100)
     mini_text = models.TextField("Краткое содержание", max_length=200)
     text = models.TextField("Содержание")
     created_date = models.DateTimeField("Дата создания", auto_now_add=True)
     published_date = models.DateTimeField("Дата публикации",
-                                          blank=True, null=True)
+                                          blank=True,
+                                          null=True)
     image = models.ImageField("Изображение", upload_to="blog/", blank=True)
-    category = models.ForeignKey(
-        Category, verbose_name="Категория",
-        blank=True, null=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, verbose_name="Категория",
+                                 blank=True,
+                                 null=True,
+                                 on_delete=models.SET_NULL)
     tag = models.ManyToManyField(Tag, verbose_name="Тег", blank=True)
 
     class Meta:

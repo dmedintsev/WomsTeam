@@ -5,6 +5,8 @@ User = settings.AUTH_USER_MODEL
 
 
 class Category(models.Model):
+    """Модель категорий для тикетов
+    """
     kat = models.CharField("Категория", max_length=100)
 
     class Meta:
@@ -16,11 +18,17 @@ class Category(models.Model):
 
 
 class Ticket(models.Model):
+    """Модель системы тикетов
+    """
     user = models.ForeignKey(
-        User, verbose_name="Пользователь", on_delete=models.CASCADE)
+        User,
+        verbose_name="Пользователь",
+        on_delete=models.CASCADE)
     category = models.ForeignKey(
-        Category, verbose_name="Категория",
-        on_delete=models.SET_NULL, null=True)
+        Category,
+        verbose_name="Категория",
+        on_delete=models.SET_NULL,
+        null=True)
     tema = models.CharField("Тема", max_length=100)
     text = models.TextField("Текст", max_length=1000)
     created = models.DateTimeField("Дата создания", auto_now_add=True)

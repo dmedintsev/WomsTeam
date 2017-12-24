@@ -4,6 +4,8 @@ from .forms import FormTicket
 
 
 def add_ticket(request):
+    """Отправка тикета
+    """
     if request.method == "POST":
         form = FormTicket(request.POST)
         if form.is_valid():
