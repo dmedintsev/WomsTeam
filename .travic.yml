@@ -16,3 +16,5 @@ before_script:
 install:
     - "pip install pep8"
     - "pip install -r req.txt"
+script:
+  - "python manage.py test"
