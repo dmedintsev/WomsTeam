@@ -48,8 +48,8 @@
       <file leaf-file-name=".travic.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travic.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            <state relative-caret-position="520">
+              <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -310,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514092664755</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Travic fix 5">
+      <created>1514092759580</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1514092759580</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -364,7 +371,8 @@
     <MESSAGE value="Travic fix2" />
     <MESSAGE value="Travic fix3" />
     <MESSAGE value="Travic fix 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Travic fix 4" />
+    <MESSAGE value="Travic fix 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Travic fix 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -457,8 +465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travic.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        <state relative-caret-position="520">
+          <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding />
         </state>
       </provider>
