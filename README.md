@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/DJWOMS/WomsTeam.svg?branch=master)](https://travis-ci.org/DJWOMS/WomsTeam)
 **Woms Team**
 
  *Онлайн-курсы обучения программированию и не только*
