@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4adbd2e3-7911-4446-ae98-54892982b1c6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.travic.yml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.travic.yml" afterPath="$PROJECT_DIR$/.travic.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,8 +48,8 @@
       <file leaf-file-name=".travic.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travic.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="364">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="15" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -261,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513967413779</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Travic">
+      <created>1514091990478</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1514091990478</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -310,7 +317,8 @@
     <MESSAGE value="Start fix" />
     <MESSAGE value="Readme" />
     <MESSAGE value="News, faq, ticket apps" />
-    <option name="LAST_COMMIT_MESSAGE" value="News, faq, ticket apps" />
+    <MESSAGE value="Travic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Travic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -403,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travic.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        <state relative-caret-position="364">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="15" selection-end-column="20" />
           <folding />
         </state>
       </provider>
