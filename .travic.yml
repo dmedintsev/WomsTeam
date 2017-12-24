@@ -5,12 +5,13 @@ python:
   - "3.6"
   - "3.7-dev"  # 3.7 development branch
   - "nightly"
-install:
-  - pip install -r req.txt
 services:
-  - postgresql
+  - "postgresql"
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - "psql -c 'create database travis_ci_test;' -U postgres"
+install:
+    - "pip install pep8"
+    - "pip install -r requirements.txt"
 addons:
 #  postgresql: "9.4"
 #  postgresql: "9.6"
