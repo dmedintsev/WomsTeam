@@ -13,7 +13,7 @@ class Profile(models.Model):
     # Профиля в раздельных формах (то есть, сначала Пользователя, потом его
     # Профиль, как, например, в немодифицированной еще Админке) модель User
     # отправит сигнал на создание строки Profile, а на этот момент значение
-    # birth_date еще не известно.
+    # birth_date еще неизвестно.
     # Но blank=False (значение по умолчанию) позволит в формах обеспечить
     # обязательность заполнение пользователем этого поля.
     birth_date = models.DateField("Дата рождения", null=True,)
@@ -27,13 +27,17 @@ class Profile(models.Model):
         verbose_name_plural = "Профили ползователей"
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        # Параметр id=instance.id чтобы избежать дублирования ключей
+        # (оно может возникнуть при добавлении пользователя через Админку)
+        # К тому же, это логично, когда: user.id == profile.id
+        # TODO: Посмотреть логи запросов. Возможно, дешевле будет pk=instance.pk
+        Profile.objects.create(user=instance, id=instance.id)
 
 
 @receiver(post_save, sender=User)
