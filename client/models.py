@@ -16,7 +16,7 @@ class Profile(models.Model):
     # birth_date еще неизвестно.
     # Но blank=False (значение по умолчанию) позволит в формах обеспечить
     # обязательность заполнение пользователем этого поля.
-    birth_date = models.DateField("Дата рождения", null=True,)
+    birth_date = models.DateField("Дата рождения", null=True)
 
     # TODO: Уточнить путь для сохранения. Пока же указан upload_to="client/"
     avatar = models.ImageField("Аватар", upload_to="client/",

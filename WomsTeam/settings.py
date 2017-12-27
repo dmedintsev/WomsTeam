@@ -25,7 +25,7 @@ SECRET_KEY = 'oe&hpb77feqxx$(cw-&(j^p$!w5skurp&1zm)9s00$lprbq@*@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', ]
 
 
 # Application definition
@@ -81,10 +81,10 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-LOGIN_REDIRECT_URL = '/dashboards/'
-LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackends'
-# EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 WSGI_APPLICATION = 'WomsTeam.wsgi.application'
 
