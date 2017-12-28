@@ -37,9 +37,9 @@ class Task(models.Model):
     """ Класс модели заданий для курсов
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, verbose_name="Категория",
-                                 on_delete=models.SET_NULL, blank=True,
-                                 null=True,)
+    сourse = models.ForeignKey(Course, verbose_name="Курс",
+                               on_delete=models.SET_NULL, blank=True,
+                               null=True,)
     title = models.CharField("Заголовок", max_length=100, )
     text = models.TextField("Текст (теория) с примерами", max_length=5000)
     code = models.TextField("Тест задание", max_length=5000)
