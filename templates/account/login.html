@@ -1,0 +1,78 @@
+{% extends "account/base.html" %}
+{% load account %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block content %}
+
+
+<form class="form-horizontal m-t-20" method="POST" action="{% url 'account_login' %}">{% csrf_token %}
+    <div class="form-group">
+                                <div class="col-xs-12">
+                                    <p class="text-white">{% render_field form.errors %}</p>
+                                </div>
+        </div>
+  <div class="form-group ">
+                                <div class="col-xs-12">
+
+  {% render_field form.login  type="text" class="form-control" placeholder="Email" %}
+                                </div>
+  </div>
+  <div class="form-group ">
+                                <div class="col-xs-12">
+
+  {% render_field form.password  type="text" class="form-control" placeholder="Пароль" %}
+                                </div>
+  </div>
+  <div class="form-group ">
+                                <div class="col-xs-12">
+                                    <div class="checkbox checkbox-custom">
+                                        <input id="checkbox-signup" type="checkbox">
+                                        <label for="checkbox-signup">
+                                            Запомнить меня
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+  <div class="form-group text-center m-t-30">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Авторизоваться</button>
+                                </div>
+                            </div>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+<div class="form-group m-t-30 m-b-0">
+                                <div class="col-sm-12 text-xs-center">
+                                    <h5 class="text-muted"><b>Войти в систему через</b></h5>
+                                </div>
+                            </div>
+  <div class="form-group m-b-0 text-xs-center">
+                                <div class="col-sm-12">
+                                  <a href="/accounts/facebook/login/">
+                                    <button type="button" class="btn btn-facebook waves-effect waves-light m-t-20">
+                                       <i class="fa fa-facebook m-r-5"></i> Facebook
+                                    </button>
+                                  </a>
+
+                                    <button type="button" class="btn btn-twitter waves-effect waves-light m-t-20">
+                                       <i class="fa fa-twitter m-r-5"></i> Twitter
+                                    </button>
+
+                                    <button type="button" class="btn btn-googleplus waves-effect waves-light m-t-20">
+                                       <i class="fa fa-google-plus m-r-5"></i> Google+
+                                    </button>
+                                </div>
+                            </div>
+</form>
+</div>
+                </div>
+            </div>
+        </div>
+            <div class="m-t-20">
+                <div class="text-xs-center">
+                    <p class="text-white">У вас нет учетной записи? <a href="{% url 'account_signup' %}" class="text-white m-l-5"><b>Зарегистрироваться</b></a></p>
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+{% load socialaccount %}
+{% load i18n %}
+<html>
+   <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <!-- App Favicon -->
+        <link rel="shortcut icon" href="{% static 'account/images/favicon.ico' %}">
+
+        <!-- App title -->
+        <title>Uplon</title>
+
+        <!--Morris Chart CSS -->
+		<link rel="stylesheet" href="{% static 'account/plugins/morris/morris.css' %}">
+
+        <!-- Switchery css -->
+        <link href="{% static 'account/plugins/switchery/switchery.min.css' %}" rel="stylesheet" />
+
+        <!-- App CSS -->
+        <link href="{% static 'account/css/style.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js' %}"></script>
+        <![endif]-->
+        <!-- Modernizr js -->
+        <script src="{% static 'account/js/modernizr.min.js' %}"></script>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+  <div class="account-pages"></div>
+        <div class="clearfix"></div>
+        <div class="wrapper-page">
+
+        	<div class="account-bg">
+                <div class="card-box m-b-0">
+                    <div class="text-xs-center m-t-20">
+                        <a href="/" class="logo">
+                            <i class="zmdi zmdi-group-work icon-c-logo"></i>
+                            <span>Monastic Bilder</span>
+                        </a>
+                    </div>
+                    <div class="m-t-30 m-b-20">
+                        <div class="col-xs-12 text-xs-center">
+                            <a href="{% url 'account_login' %}">
+                                <h6 class="text-muted text-uppercase m-b-0 m-t-0">ВОЙТИ В СИСТЕМУ</h6>
+                            </a>
+                        </div>
+
+                    <div class="m-t-30 m-b-20">
+    {% block body %}
+
+           {% if messages %}
+      <p>{% trans 'Messages' %}:</p>
+      <ul>
+	{% for message in messages %}
+	<li>
+        <p>{{message}}</p>
+    </li>
+	{% endfor %}
+      </ul>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+
+            </div>
+        </div>
+  </body>
+
+  <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery  -->
+        <script src="{% static 'account/js/jquery.min.js'%}"></script>
+        <script src="{% static 'account/js/tether.min.js'%}"></script>
+        <script src="{% static 'account/js/bootstrap.min.js'%}"></script>
+        <script src="{% static 'account/js/detect.js'%}"></script>
+        <script src="{% static 'account/js/fastclick.js'%}"></script>
+        <script src="{% static 'account/js/jquery.blockUI.js'%}"></script>
+        <script src="{% static 'account/js/waves.js'%}"></script>
+        <script src="{% static 'account/js/jquery.nicescroll.js'%}"></script>
+        <script src="{% static 'account/js/jquery.scrollTo.min.js'%}"></script>
+        <script src="{% static 'account/js/jquery.slimscroll.js'%}"></script>
+        <script src="{% static 'account/plugins/switchery/switchery.min.js'%}"></script>
+
+        <!--Morris Chart-->
+		<script src="{% static 'account/plugins/morris/morris.min.js'%}"></script>
+		<script src="{% static 'account/plugins/raphael/raphael-min.js'%}"></script>
+
+        <!-- Counter Up  -->
+        <script src="{% static 'account/plugins/waypoints/lib/jquery.waypoints.js'%}"></script>
+        <script src="{% static 'account/plugins/counterup/jquery.counterup.min.js'%}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'account/js/jquery.core.js'%}"></script>
+        <script src="{% static 'account/js/jquery.app.js'%}"></script>
+
+        <!-- Page specific js -->
+        <script src="{% static 'account/pages/jquery.dashboard.js'%}"></script>
+  </body>
+</html>
