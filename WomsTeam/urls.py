@@ -19,9 +19,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('faq/', include("faq.urls")),
     path('accounts/', include('allauth.urls')),
     path('news/', include("blog.urls")),
     path('ticket/', include("ticket.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('debug_sl/', include(debug_toolbar.urls)),
+    ] + urlpatterns
