@@ -1,0 +1,7 @@
+Пользователь: {{user.username}} </br>
+Имя: {{user.first_name}} </br>
+Фамилия: {{user.last_name}} </br>
+День рождения: {{user.profile.birth_date}} </br>
+Аватар: {{user.profile.avatar}}</br>
+</br>
+<a href="{% url 'client:update_profile' %}">Изменить профиль</a>
