@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
 
+    'client',
     'faq',
     'blog',
     'ticket',
@@ -242,4 +243,4 @@ INTERNAL_IPS = '127.0.0.1'
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    from .prod_settings import *
