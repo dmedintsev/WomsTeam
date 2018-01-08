@@ -1,5 +1,4 @@
  .idea/*
-*/migrations/
 venv
 local_settings.py
 __pycache__/
