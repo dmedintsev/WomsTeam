@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
 
+    'client',
     'faq',
     'blog',
     'ticket',
@@ -141,12 +142,12 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-#STATIC_DIR = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [STATIC_DIR, ]
-#STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_URL = '/static/'
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # allauth facebook
 SOCIALACCOUNT_PROVIDERS = {
@@ -242,4 +243,4 @@ INTERNAL_IPS = '127.0.0.1'
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    from .prod_settings import *
