@@ -1,0 +1,119 @@
+{% extends 'base-home.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="soc">
+        <ul>
+            <li>
+                <a href="#"><img src="{% static '/img/soc/vk.png' %}"></a>
+            </li>
+            <li>
+                <a href="#"><img src="{% static '/img/soc/fb.png' %}"></a>
+            </li>
+            <li>
+                <a href="#"><img src="{% static '/img/soc/youtube.png' %}"></a>
+            </li>
+            <li class="li-menu">
+                <label class="btn-menu" for="hmt"></label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="back-video">
+        <video width="100%" height="auto" poster="" preload="none" autoplay loop>
+            <source src="/media/home/home.mp4" type="video/mp4">
+            <source src="/examples/media/martynko.webm" type="video/webm">
+            <source src="/examples/media/martynko.ogv" type="video/ogg">
+        </video>
+    </div>
+
+    <div class="center">
+        <div id="slider">
+            <div class="slides">
+
+                <!-- First slide -->
+                <div class="slider">
+                    <div class="legend"></div>
+                    <div class="content">
+                        <div class="content-txt">
+                            <h1> Курсы по python  </h1>
+                            <h2> Обучающие курсы python </h2>
+                        </div>
+                    </div>
+                    <div class="images">
+                        <!-- Картинка на фон -->
+                    </div>
+                </div>
+
+                <!-- Second slide -->
+                <div class="slider">
+                    <div class="legend"></div>
+                    <div class="content">
+                        <div class="content-txt">
+                            <h1> Курсы по Django </h1>
+                            <h2> Обучающие курсы Django </h2>
+                        </div>
+                    </div>
+                    <div class="images">
+
+                    </div>
+                </div>
+
+                <!-- Third slide -->
+                <div class="slider">
+                    <div class="legend"></div>
+                    <div class="content">
+                        <div class="content-txt">
+                            <h1> Курсы по HTML  </h1>
+                            <h2> Обучающие курсы HTML </h2>
+                        </div>
+                    </div>
+                    <div class="images">
+
+                    </div>
+                </div>
+
+                <!-- Fourth slide -->
+                <div class="slider">
+                    <div class="legend"></div>
+                    <div class="content">
+                        <div class="content-txt">
+                            <h1> Курсы по CSS  </h1>
+                            <h2> Обучающие курсы CSS </h2>
+                        </div>
+                    </div>
+                    <div class="images">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+{#        <div class="reg">#}
+{#            <form action="" method="post">#}
+{#                <input type="email" placeholder="Ваш email">#}
+{#                <button type="submit">Подписаться</button>#}
+{#            </form>#}
+{#        </div>#}
+    </div>
+{% endblock content %}
+
+{% block right %}
+    <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+    <label class="btn-menu2" for="hmt">
+        <span class="first"></span>
+        <span class="second"></span>
+        <span class="third"></span>
+    </label>
+    <ul class="hidden-menu">
+        <li>
+            <a href="{% url 'blog' %}">Блог</a>
+        </li>
+        <li>
+            <a href="{% url 'forum_start' %}">Форум</a>
+        </li>
+        <li>
+            <a href="/accounts/login/">Вход</a>
+        </li>
+    </ul>
+{% endblock right %}

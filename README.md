@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/DJWOMS/WomsTeam.svg?branch=master)](https://travis-ci.org/DJWOMS/WomsTeam)
 
 **Woms Team**
--
+-  Site http://djangochannel.com
+
 **Онлайн-курсы обучения программированию и не только**
  
 - Python 3.6

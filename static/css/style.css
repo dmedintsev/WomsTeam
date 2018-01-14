@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+}
+h1{
+    font-size: 32px;
+}
+h2{
+    font-size: 22px;
+}
+.main{
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*Social*/
+.soc {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    align-items: center;
+    /*width: 100%;*/
+    height: 50px;
+    margin: 25px 15% 0 0;
+    position: relative;
+    z-index: 1;
+}
+.soc li{
+    margin: 0 10px 0 0;
+    float: left;
+    list-style: none;
+}
+.li-menu{
+    padding: 0 0 0 50px;
+}
+/*home*/
+.center{
+    width: 100%;
+    flex: 1 0 auto;
+}
+/*Back video*/
+.back-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    filter: brightness(70%);
+}
+@supports (object-fit: cover) {
+    .back-video > video {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/*Sidebar*/
+.hidden-menu {
+    display: block;
+    position: fixed;
+    list-style:none;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    width: 200px;
+    background-color: #000;
+    height: 100%;
+    top: 0;
+    right: -200px;
+    transition: right .2s;
+    z-index: 2;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    opacity: 0.5;
+}
+.hidden-menu-ticker {
+    display: none;
+}
+.btn-menu {
+    position: fixed;
+    cursor: pointer;
+    transition: left .23s;
+    z-index: 3;
+    width: 35px;
+    height: 35px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    background-image: url("../img/soc/menu-icon.png");
+}
+.btn-menu span {
+    display: block;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px 0 0;
+    transition: all .1s linear .23s;
+    position: relative;
+}
+.btn-menu span.first {
+    margin-top: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu {
+    right: 160px;
+}
+.hidden-menu-ticker:checked ~ .hidden-menu {
+    right: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.first {
+    -webkit-transform: rotate(45deg);
+    top: 10px;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.second {
+    opacity: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.third {
+    -webkit-transform: rotate(-45deg);
+    top: -10px;
+}
+.hidden-menu li{
+    padding: 5px 0 5px 0;
+}
+.hidden-menu li a, .hidden-menu li a:active, .hidden-menu li a:hover{
+    color: #fff;
+    font-size: 16px;
+}
+/*footer*/
+footer{
+    width: 100%;
+}
+.footer{
+    margin: 0;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.5;
+    text-align: center;
+}
