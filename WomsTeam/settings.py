@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     'widget_tweaks',
-
+    'django_summernote',
+    
     'client',
     'faq',
     'blog',
@@ -96,7 +97,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-LOGIN_REDIRECT_URL = '/dashboards/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/account/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackends'
 # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
@@ -204,7 +205,7 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 60
 SOCIALACCOUNT_AUTO_SIGNUP = False
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_QUERY_EMAIL = True
-
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 # PASSWORD STORAGE SETTINGS
 # ------------------------------------------------------------------------------
 PASSWORD_HASHERS = [
