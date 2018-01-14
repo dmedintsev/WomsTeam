@@ -1,5 +1,5 @@
 {% for post in posts %}
   <a href="{% url 'post_single' pk=post.id  %}">{{post.title}}</a><br>
-  <div style="">{{post.mini_text}}</div>
+  <div style="">{{post.mini_text|safe}}</div>
   {{post.published_date}}<hr>
 {% endfor %}
