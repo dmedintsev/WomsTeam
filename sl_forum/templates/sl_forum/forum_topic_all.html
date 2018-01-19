@@ -1,0 +1,14 @@
+<!-- Выводим Темы раздела -->
+<div>
+<h1>Темы раздела</h1>
+<h3>{% for foo in topic %}</h3>
+    <a href="{{ foo.get_absolute_url }}"><p>{{ foo.title }}</p></a>
+    <p>Дата {{ foo.created }}</p>
+    {% endfor %}
+</div>
+
+<!-- Переход на страницу создания новой темы к разделу -->
+<div>
+    <a href="{% url 'forum_topic_create' %}"><button>Создать тему</button></a>
+</div>
+

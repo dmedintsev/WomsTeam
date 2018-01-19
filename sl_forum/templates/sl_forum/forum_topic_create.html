@@ -1,0 +1,6 @@
+<!-- Форма создания новой темы на форуме -->
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Сохранить</button>
+</form>

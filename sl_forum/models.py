@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class AbstractDateTimeModel(models.Model):
@@ -26,6 +27,9 @@ class SectionForum(AbstractDateTimeModel):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('forum_topic_all', args=[str(self.id)])
+
 
 class TopicForum(AbstractDateTimeModel):
     """Модель реализует темы на форуме"""
@@ -47,6 +51,9 @@ class TopicForum(AbstractDateTimeModel):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('forum_topic_one', args=[str(self.id)])
+
 
 class MessageForum(AbstractDateTimeModel):
     """Модель сообщений которые оставляют пользователи на форуме"""
@@ -66,3 +73,6 @@ class MessageForum(AbstractDateTimeModel):
 
     def __str__(self):
         return self.text[:20]
+
+    def get_absolute_url(self):
+        return reverse('forum_topic_one', args=[str(self.id)])
