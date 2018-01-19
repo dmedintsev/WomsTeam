@@ -26,22 +26,26 @@ class TopicAllView(ListView):
         return topic
 
 
-class TopicOneView(DetailView, FormView):
+class TopicOneView(TemplateView):
     """Выводим одну тему с описанием"""
-    template_name = 'sl_forum/forum_topic_one.html'
-    context_object_name = 'topic'
-    model = TopicForum
-    form_class = MessageForm
+    template_name = 'sl_forum/forum_one_test.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['message'] = MessageForum.objects.filter(topic=self.kwargs['pk'])
+        kwargs['topic'] = TopicForum.objects.get(pk=kwargs['pk'])
+        kwargs['message'] = MessageForum.objects.filter(topic=kwargs['pk']).order_by('created')
+        kwargs['form'] = MessageForm()
         return super(TopicOneView, self).get_context_data(**kwargs)
 
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.user = self.request.user
-        obj.save()
-        return HttpResponseRedirect(reverse('forum_topic_one', args=[str(obj.pk)]))
+    def post(self, request, **kwargs):
+        if request.method == 'POST':
+            form = MessageForm(request.POST)
+            if form.is_valid():
+                user = request.user
+                topic = TopicForum.objects.get(pk=kwargs['pk'])
+                text = form.cleaned_data['text']
+                new_record = MessageForum(user=user, topic=topic, text=text)
+                new_record.save()
+                return HttpResponseRedirect(reverse('forum_topic_one', args=[str(topic.pk)]))
 
 
 class TopicCreateView(CreateView):
