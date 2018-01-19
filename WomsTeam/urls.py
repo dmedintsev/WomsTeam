@@ -21,12 +21,15 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
+    path('', include('djw_home.urls')),
     path('faq/', include('faq.urls')),
     path('accounts/', include('allauth.urls')),
     path('news/', include('blog.urls')),
     path('ticket/', include('ticket.urls')),
     path('client/', include('client.urls', namespace='client')),
     path('forum/', include('sl_forum.urls')),
+    
+    path('summernote/', include('django_summernote.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="{# meta.desc #}">
+    <meta name="keywords" content="{# meta.keywords #}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}" />
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    {% block left %}{% endblock left %}
+    
+    <div class="main">
+        {% block content %}
+        {% endblock content %}
+        <footer>
+            <div class="footer">
+                {% block footer %}
+                    DjangoChannel.com 2018
+                {% endblock footer %}
+            </div>
+        </footer>
+    </div>
+
+    {% block right %}{% endblock right %}
+
+</body>
+</html>

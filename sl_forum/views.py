@@ -21,6 +21,3 @@ def print_kwargs(request, *args, **kwargs):
         l.append(foo)
     a = print(l)
     return render(request, 'sl_forum/print.html', context={'prin': a})
-
-
-

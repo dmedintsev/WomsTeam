@@ -17,9 +17,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MessageForum',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('modified', models.DateTimeField(auto_now_add=True, verbose_name='Дата редактирования')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('created', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата создания')),
+                ('modified', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата редактирования')),
                 ('text', models.TextField(verbose_name='Текст сообщения')),
             ],
             options={
@@ -32,10 +35,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SectionForum',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('modified', models.DateTimeField(auto_now_add=True, verbose_name='Дата редактирования')),
-                ('title', models.CharField(max_length=250, verbose_name='Укажите название разделов на форуме')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('created', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата создания')),
+                ('modified', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата редактирования')),
+                ('title', models.CharField(max_length=250,
+                                           verbose_name='Укажите название разделов на форуме')),
             ],
             options={
                 'verbose_name': 'Раздел',
@@ -47,13 +54,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TopicForum',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('modified', models.DateTimeField(auto_now_add=True, verbose_name='Дата редактирования')),
-                ('title', models.CharField(max_length=250, verbose_name='Укажите название темы на форму')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('created', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата создания')),
+                ('modified', models.DateTimeField(
+                    auto_now_add=True, verbose_name='Дата редактирования')),
+                ('title', models.CharField(max_length=250,
+                                           verbose_name='Укажите название темы на форму')),
                 ('text', models.TextField(verbose_name='Текст, описание темы')),
-                ('section', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='section_forum', to='sl_forum.SectionForum', verbose_name='Укажите к какому разделу относиться тема')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='topic_forum', to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                ('section',
+                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                   related_name='section_forum',
+                                   to='sl_forum.SectionForum',
+                                   verbose_name='Укажите к какому разделу относиться тема')),
+                ('user',
+                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                   related_name='topic_forum',
+                                   to=settings.AUTH_USER_MODEL,
+                                   verbose_name='Пользователь')),
             ],
             options={
                 'verbose_name': 'Тема',
@@ -65,11 +84,19 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='messageforum',
             name='topic',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='message_topic', to='sl_forum.TopicForum', verbose_name='Укажите к какой теме относиться сообщение'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='message_topic',
+                to='sl_forum.TopicForum',
+                verbose_name='Укажите к какой теме относиться сообщение'),
         ),
         migrations.AddField(
             model_name='messageforum',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='message_forum', to=settings.AUTH_USER_MODEL, verbose_name='Пользователь'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='message_forum',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Пользователь'),
         ),
     ]

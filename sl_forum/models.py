@@ -13,7 +13,9 @@ class AbstractDateTimeModel(models.Model):
 
 class SectionForum(AbstractDateTimeModel):
     """Модель реализует разделы на форуме"""
-    title = models.CharField('Укажите название раздела на форуме', max_length=250)
+    title = models.CharField(
+        'Укажите название раздела на форуме',
+        max_length=250)
 
     class Meta:
         verbose_name = 'Раздел'
@@ -35,7 +37,6 @@ class TopicForum(AbstractDateTimeModel):
 
     title = models.CharField('Укажите название темы на форуме', max_length=250)
     text = models.TextField('Текст, описание темы')
-    
 
     class Meta:
         verbose_name = 'Тема'
@@ -65,4 +66,3 @@ class MessageForum(AbstractDateTimeModel):
 
     def __str__(self):
         return self.text[:20]
-
