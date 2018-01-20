@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.urls import reverse
 
 
@@ -76,3 +78,41 @@ class MessageForum(AbstractDateTimeModel):
 
     def get_absolute_url(self):
         return reverse('forum_topic_one', args=[str(self.id)])
+
+
+class UserForum(AbstractDateTimeModel):
+    """Профиль юзера на форуме"""
+    user = models.ForeignKey(User, verbose_name='Профиль пользователя на форуме',
+                             related_name='user_forum', on_delete=models.CASCADE)
+
+    name = models.CharField(verbose_name='Имя пользователя', max_length=50, blank=True)
+    views = models.PositiveIntegerField(verbose_name='Счетчик сообщений пользователя', default=0)
+
+    class Meta:
+        verbose_name = 'Профиль пользователя'
+        verbose_name_plural = verbose_name
+        ordering = ('-created',)
+        db_table = 'userforum'
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        if not self.name:
+            self.name = self.user
+        super(UserForum, self).save()
+
+    def __str__(self):
+        return str(self.user)
+
+    def get_absolute_url(self):
+        return reverse('forum_user_one', args=[str(self.id)])
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserForum.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

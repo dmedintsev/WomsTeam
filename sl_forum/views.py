@@ -2,8 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, View, FormView
-from .models import TopicForum, SectionForum, MessageForum
-from .forms import TopicForm, MessageForm
+from .models import TopicForum, SectionForum, MessageForum, UserForum
+from .forms import TopicForm, MessageForm, UserForumForm
 import markdown
 
 
@@ -20,10 +20,10 @@ class TopicAllView(ListView):
     context_object_name = 'topic'
 
     def get_queryset(self):
-        topic = TopicForum.objects.filter(section=self.kwargs['pk'])
-        for t in topic:
-            t.text = markdown.markdown(t.text,)
-        return topic
+        topics = TopicForum.objects.filter(section=self.kwargs['pk'])
+        for topic in topics:
+            topic.text = markdown.markdown(topic.text,)
+        return topics
 
 
 class TopicOneView(TemplateView):
@@ -45,6 +45,10 @@ class TopicOneView(TemplateView):
                 text = form.cleaned_data['text']
                 new_record = MessageForum(user=user, topic=topic, text=text)
                 new_record.save()
+                for user in UserForum.objects.filter():
+                    user.user = request.user
+                    user.views += 1
+                    user.save(update_fields=['user', 'views'])
                 return HttpResponseRedirect(reverse('forum_topic_one', args=[str(topic.pk)]))
 
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import TopicForum, MessageForum
+from .models import TopicForum, MessageForum, UserForum
 
 
 class TopicForm(forms.ModelForm):
@@ -14,3 +14,10 @@ class MessageForm(forms.ModelForm):
     class Meta:
         model = MessageForum
         exclude = ('user', 'topic')
+
+
+class UserForumForm(forms.ModelForm):
+    """Создание профиля пользователя на форуме"""
+    class Meta:
+        model = UserForum
+        fields = ('name', 'views')
