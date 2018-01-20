@@ -13,6 +13,7 @@
     <h1>Сообщения:</h1>
     {% for foo in message %}
     <h3>Пользователь {{ foo.user }}</h3>
+        <p>у пользователя {{ views.views }} сообщений</p>
     <p>Дата {{ foo.created }}</p>
         <h3>Оставил отзыв</h3>
     <p>{{ foo.text }}</p>

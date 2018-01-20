@@ -1,9 +1,8 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, View, FormView
+from django.views.generic import TemplateView, ListView, CreateView
 from .models import TopicForum, SectionForum, MessageForum, UserForum
-from .forms import TopicForm, MessageForm, UserForumForm
+from .forms import TopicForm, MessageForm
 import markdown
 
 
@@ -28,12 +27,13 @@ class TopicAllView(ListView):
 
 class TopicOneView(TemplateView):
     """Выводим одну тему с описанием"""
-    template_name = 'sl_forum/forum_one_test.html'
+    template_name = 'sl_forum/forum_topic_one.html'
 
     def get_context_data(self, **kwargs):
         kwargs['topic'] = TopicForum.objects.get(pk=kwargs['pk'])
         kwargs['message'] = MessageForum.objects.filter(topic=kwargs['pk']).order_by('created')
         kwargs['form'] = MessageForm()
+        kwargs['views'] = UserForum.objects.get(pk=kwargs['pk'])
         return super(TopicOneView, self).get_context_data(**kwargs)
 
     def post(self, request, **kwargs):
