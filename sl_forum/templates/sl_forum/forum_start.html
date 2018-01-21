@@ -1,13 +1,7 @@
 <!-- Выводим разделы -->
 <div>
-<h3>{% for foo in section %}</h3>
-    <a href=""><p>{{ foo }}</p></a>
-    {% endfor %}
-</div>
-
-<div>
-<!-- Выводим темы -->
-<h1>{% for foo in topic %}</h1>
-    <a href=""><p>{{ foo }}</p></a>
+<h1>Разделы</h1>
+<h3>{% for foo in section %}</h3>>
+    <a href="{{ foo.get_absolute_url }}"><p>{{ foo.title }}</p></a>
     {% endfor %}
 </div>
