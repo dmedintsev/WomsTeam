@@ -8,6 +8,11 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email')
+        widgets = {
+            'first_name':forms.TextInput(attrs={'placeholder':'Имя'}),
+            'last_name': forms.TextInput(attrs={'placeholder':'Фамилия'}),
+            'email': forms.TextInput(attrs={'placeholder':'Эл. почта'})
+        }
 
 
 class ProfileForm(forms.ModelForm):
@@ -15,3 +20,6 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('birth_date', 'avatar',)
         localized_fields = ('birth_date',)
+        widgets = {
+            'birth_date':forms.TextInput(attrs={'placeholder':'Дата рождения'}),
+        }
