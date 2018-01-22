@@ -59,3 +59,27 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    """ Класс модели комментария
+    """
+    # id = models.IntegerField(primary_key=True, auto_created=True)
+    user = models.ForeignKey(
+        'auth.User',
+        verbose_name="Автор",
+        on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        'Post',
+        verbose_name="Сообщение",
+        on_delete=models.CASCADE)
+    text = models.TextField(
+        verbose_name="Комментарий")
+    published_date = models.DateTimeField(
+        "Дата публикации",
+        blank=True,
+        null=True)
+
+    class Meta:
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
